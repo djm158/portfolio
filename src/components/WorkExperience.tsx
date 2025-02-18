@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Briefcase, Calendar, Check } from "lucide-react";
+import {
+  Briefcase,
+  Calendar,
+  Check,
+  Building2,
+  Code2,
+  Trophy,
+} from "lucide-react";
 import type { WorkExperience as WorkExperienceType } from "../types";
 
 const experiences: WorkExperienceType[] = [
@@ -74,94 +81,116 @@ const WorkExperience = () => {
 
   return (
     <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-6">
-        <motion.h2
+      <div className="container mx-auto px-4 sm:px-6">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-3xl font-bold text-center mb-12"
+          className="text-center mb-16"
         >
-          Work Experience
-        </motion.h2>
+          <h2 className="text-4xl font-bold mb-4">Work Experience</h2>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            A journey through my professional career, showcasing my growth and
+            impact in the tech industry.
+          </p>
+        </motion.div>
 
         <div ref={ref} className="relative">
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-px h-full w-px bg-blue-200 dark:bg-blue-800" />
+          <div className="absolute left-[22px] md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-gradient-to-b from-blue-400 to-blue-600 dark:from-blue-600 dark:to-blue-800" />
 
           {experiences.map((experience, index) => (
             <motion.div
               key={experience.id}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: index * 0.2 }}
-              className={`relative mb-12 md:mb-20`}
+              transition={{
+                delay: index * 0.2,
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              className={`relative mb-12 md:mb-20 group`}
             >
-              <div className={`flex items-center mb-4`}>
-                <div className="flex items-center">
-                  <Briefcase className="w-5 h-5 text-blue-600 mr-2" />
-                  <h3 className="text-xl font-semibold">{experience.role}</h3>
-                </div>
-              </div>
-
               <div
-                className={`bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6`}
+                className={`flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 pl-[60px] md:pl-0 ${
+                  index % 2 === 0 ? "md:flex-row-reverse" : ""
+                }`}
               >
-                <div className="flex items-center mb-4">
-                  <Calendar className="w-4 h-4 text-blue-600 mr-2" />
-                  <span className="text-gray-600 dark:text-gray-400">
-                    {experience.duration}
-                  </span>
+                {/* Timeline node */}
+                <div
+                  className={`absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-11 h-11 md:w-12 md:h-12 bg-blue-500 dark:bg-blue-600 rounded-full flex items-center justify-center shadow-lg z-10 top-0 md:top-1/2 md:-mt-6`}
+                >
+                  <Building2 className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
 
-                <h4 className="text-lg font-semibold mb-4">
-                  {experience.company}
-                </h4>
-
-                <div className="space-y-4">
-                  <div>
-                    <h5 className="font-medium mb-2">Key Responsibilities:</h5>
-                    <ul className="space-y-2">
-                      {experience.responsibilities.map((responsibility, i) => (
-                        <li key={i} className="flex items-start">
-                          <Check className="w-4 h-4 text-green-500 mt-1 mr-2 flex-shrink-0" />
-                          <span className="text-gray-600 dark:text-gray-400">
-                            {responsibility}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h5 className="font-medium mb-2">Technologies:</h5>
-                    <div className="flex flex-wrap gap-2">
-                      {experience.technologies.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                {/* Content card */}
+                <div className="w-full md:w-[calc(50%-2rem)]">
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="bg-white dark:bg-gray-900 rounded-xl shadow-xl p-4 sm:p-6 transition-all duration-300 hover:shadow-2xl"
+                  >
+                    <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div className="p-2 sm:p-3 bg-blue-100 dark:bg-blue-900 rounded-lg">
+                        <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold">
+                          {experience.role}
+                        </h3>
+                        <h4 className="text-base text-gray-700 dark:text-gray-300 font-medium mb-1">
+                          {experience.company}
+                        </h4>
+                        <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm">
+                          <Calendar className="w-4 h-4 mr-1.5" />
+                          <span>{experience.duration}</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-                  <div>
-                    {experience.achievements.length > 0 && (
-                      <>
-                        <h5 className="font-medium mb-2">Key Achievements:</h5>
-                        <ul className="space-y-2">
-                          {experience.achievements.map((achievement, i) => (
-                            <li key={i} className="flex items-start">
-                              <Check className="w-4 h-4 text-green-500 mt-1 mr-2 flex-shrink-0" />
-                              <span className="text-gray-600 dark:text-gray-400">
-                                {achievement}
+                    <div className="mb-4 sm:mb-6">
+                      <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 flex items-center">
+                        <Code2 className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-blue-600" />
+                        Key Responsibilities
+                      </h4>
+                      <ul className="space-y-2 sm:space-y-3">
+                        {experience.responsibilities.map(
+                          (responsibility, i) => (
+                            <motion.li
+                              key={i}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.1 * i }}
+                              className="flex items-start group"
+                            >
+                              <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mt-1 mr-2 sm:mr-3 flex-shrink-0" />
+                              <span className="text-sm sm:text-base text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors">
+                                {responsibility}
                               </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-                  </div>
+                            </motion.li>
+                          )
+                        )}
+                      </ul>
+                    </div>
+
+                    <div className="space-y-3 sm:space-y-4">
+                      <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4 flex items-center">
+                        <Trophy className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-blue-600" />
+                        Technologies
+                      </h4>
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                        {experience.technologies.map((tech, i) => (
+                          <motion.span
+                            key={i}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.05 * i }}
+                            className="px-2.5 py-1 sm:px-3 sm:py-1 text-xs sm:text-sm bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 text-white rounded-full font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
+                          >
+                            {tech}
+                          </motion.span>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
