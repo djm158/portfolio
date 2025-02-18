@@ -2,7 +2,15 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Icon } from "./icon";
 
-const Hero = () => {
+type HeroProps = {
+  name: string;
+  description: string;
+  email: string;
+  linkedin: string;
+  github: string;
+};
+
+const Hero = ({ name, description, email, linkedin, github }: HeroProps) => {
   return (
     <section
       id="home"
@@ -30,7 +38,7 @@ const Hero = () => {
                 transition={{ delay: 0.4 }}
                 className="block text-blue-600"
               >
-                Dan McGrath
+                {name}
               </motion.span>
             </h1>
 
@@ -40,10 +48,7 @@ const Hero = () => {
               transition={{ delay: 0.6 }}
               className="text-xl text-gray-600 dark:text-gray-300 mb-8"
             >
-              A senior software engineer passionate about creating elegant
-              solutions to complex problems. Specializing in full-stack
-              development with 7+ years of experience building scalable
-              applications.
+              {description}
             </motion.p>
 
             <motion.div
@@ -53,7 +58,7 @@ const Hero = () => {
               className="flex space-x-4"
             >
               <a
-                href="https://github.com"
+                href={github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
@@ -61,7 +66,7 @@ const Hero = () => {
                 <Github className="w-6 h-6" />
               </a>
               <a
-                href="https://linkedin.com"
+                href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
@@ -69,7 +74,7 @@ const Hero = () => {
                 <Linkedin className="w-6 h-6" />
               </a>
               <a
-                href="mailto:contact@example.com"
+                href={`mailto:${email}`}
                 className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
               >
                 <Mail className="w-6 h-6" />
