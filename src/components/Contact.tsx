@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Send, Mail, MapPin, Phone } from "lucide-react";
+import { Send } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +31,7 @@ const Contact = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -50,61 +50,7 @@ const Contact = () => {
           Get in Touch
         </motion.h2>
 
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            className="space-y-8"
-          >
-            <div>
-              <h3 className="text-2xl font-semibold mb-4">
-                Let's talk about everything!
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Feel free to reach out if you want to collaborate on a project,
-                have a question, or just want to connect.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg mr-4">
-                  <Mail className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    contact@example.com
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg mr-4">
-                  <MapPin className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    San Francisco, CA
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg mr-4">
-                  <Phone className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Phone</h4>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    +1 (555) 123-4567
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
+        <div ref={ref} className="grid grid-cols-1 max-w-[600px] mx-auto">
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
