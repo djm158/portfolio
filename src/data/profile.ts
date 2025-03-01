@@ -1,3 +1,5 @@
+import resume from "@/assets/resume.pdf";
+import profile from "@/assets/profile.jpeg";
 export const Profile = {
   name: "Dan McGrath",
   description:
@@ -5,4 +7,7 @@ export const Profile = {
   email: "dan@danielmcgrath.xyz",
   linkedin: "https://www.linkedin.com/in/djmcg/",
   github: "https://github.com/djm158",
+  resume: resume,
+  location: "Conshohocken, PA",
+  img: profile,
 };
