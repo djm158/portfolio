@@ -46,12 +46,12 @@ const Blog = () => {
   });
 
   return (
-    <section id="blog" className="py-20">
+    <section id="blog" className="py-20 min-h-screen dark:bg-gray-800">
       <div className="container mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-3xl font-bold text-center mb-12"
+          className="text-3xl font-bold text-center mb-12 dark:text-gray-300"
         >
           Latest Blog Posts
         </motion.h2>
@@ -93,7 +93,12 @@ const Blog = () => {
                 </div>
 
                 <h3 className="text-xl font-semibold mb-3 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href="#">{post.title}</a>
+                  <a
+                    href={`/blog/${post.id}`}
+                    className="hover:text-blue-600 dark:hover:text-blue-400 dark:text-gray-300 transition-colors"
+                  >
+                    {post.title}
+                  </a>
                 </h3>
 
                 <p className="text-gray-600 dark:text-gray-400 mb-4">

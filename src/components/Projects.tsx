@@ -26,11 +26,14 @@ const Projects = () => {
 
   const filteredProjects = projects.filter(
     (project) =>
-      selectedCategory === "All" || project.category.includes(selectedCategory),
+      selectedCategory === "All" || project.category.includes(selectedCategory)
   );
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section
+      id="projects"
+      className="py-20 bg-gray-50 min-h-screen dark:bg-gray-800"
+    >
       <div className="container mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
