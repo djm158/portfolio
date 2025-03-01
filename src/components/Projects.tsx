@@ -24,7 +24,7 @@ const Projects = () => {
 
   const filteredProjects = projects.filter(
     (project) =>
-      selectedCategory === "All" || project.category.includes(selectedCategory)
+      selectedCategory === "All" || project.category.includes(selectedCategory),
   );
 
   return (

@@ -1,37 +1,41 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Send, Mail, MapPin, Phone } from 'lucide-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Send, Mail, MapPin, Phone } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0.1,
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setSubmitStatus('success');
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    setSubmitStatus("success");
     setIsSubmitting(false);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -53,7 +57,9 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-semibold mb-4">Let's talk about everything!</h3>
+              <h3 className="text-2xl font-semibold mb-4">
+                Let's talk about everything!
+              </h3>
               <p className="text-gray-600 dark:text-gray-400">
                 Feel free to reach out if you want to collaborate on a project,
                 have a question, or just want to connect.
@@ -67,7 +73,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-400">contact@example.com</p>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    contact@example.com
+                  </p>
                 </div>
               </div>
 
@@ -77,7 +85,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-400">San Francisco, CA</p>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    San Francisco, CA
+                  </p>
                 </div>
               </div>
 
@@ -87,7 +97,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium">Phone</h4>
-                  <p className="text-gray-600 dark:text-gray-400">+1 (555) 123-4567</p>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    +1 (555) 123-4567
+                  </p>
                 </div>
               </div>
             </div>
@@ -99,7 +111,10 @@ const Contact = () => {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2"
+                >
                   Name
                 </label>
                 <input
@@ -114,7 +129,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                >
                   Email
                 </label>
                 <input
@@ -129,7 +147,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium mb-2"
+                >
                   Subject
                 </label>
                 <input
@@ -144,7 +165,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
                   Message
                 </label>
                 <textarea
@@ -162,14 +186,18 @@ const Contact = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className={`w-full px-6 py-3 rounded-lg bg-blue-600 text-white font-medium flex items-center justify-center space-x-2 transition-colors ${
-                  isSubmitting ? 'opacity-75 cursor-not-allowed' : 'hover:bg-blue-700'
+                  isSubmitting
+                    ? "opacity-75 cursor-not-allowed"
+                    : "hover:bg-blue-700"
                 }`}
               >
                 <span>Send Message</span>
-                <Send className={`w-4 h-4 ${isSubmitting ? 'animate-pulse' : ''}`} />
+                <Send
+                  className={`w-4 h-4 ${isSubmitting ? "animate-pulse" : ""}`}
+                />
               </button>
 
-              {submitStatus === 'success' && (
+              {submitStatus === "success" && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -179,7 +207,7 @@ const Contact = () => {
                 </motion.div>
               )}
 
-              {submitStatus === 'error' && (
+              {submitStatus === "error" && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}

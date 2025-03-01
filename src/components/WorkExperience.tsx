@@ -166,7 +166,7 @@ const WorkExperience = () => {
                                 {responsibility}
                               </span>
                             </motion.li>
-                          )
+                          ),
                         )}
                       </ul>
                     </div>

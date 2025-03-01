@@ -1,36 +1,38 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Code, Server, Database, Cloud, Cog, Palette } from 'lucide-react';
-import type { Skill as SkillType } from '../types';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Code, Server, Database, Cloud, Cog, Palette } from "lucide-react";
+import type { Skill as SkillType } from "../types";
 
 const skills: SkillType[] = [
   // Frontend
-  { name: 'React', category: 'Frontend', proficiency: 95, icon: 'Code' },
-  { name: 'TypeScript', category: 'Frontend', proficiency: 90, icon: 'Code' },
-  { name: 'Next.js', category: 'Frontend', proficiency: 85, icon: 'Code' },
-  { name: 'Vue.js', category: 'Frontend', proficiency: 80, icon: 'Code' },
-  { name: 'CSS/SASS', category: 'Frontend', proficiency: 90, icon: 'Palette' },
-  
+  { name: "React", category: "Frontend", proficiency: 95, icon: "Code" },
+  { name: "TypeScript", category: "Frontend", proficiency: 90, icon: "Code" },
+  { name: "Next.js", category: "Frontend", proficiency: 85, icon: "Code" },
+  { name: "CSS/SASS", category: "Frontend", proficiency: 90, icon: "Palette" },
+  { name: "Tailwind", category: "Frontend", proficiency: 90, icon: "Palette" },
+
   // Backend
-  { name: 'Node.js', category: 'Backend', proficiency: 90, icon: 'Server' },
-  { name: 'Python', category: 'Backend', proficiency: 85, icon: 'Server' },
-  { name: 'GraphQL', category: 'Backend', proficiency: 80, icon: 'Server' },
-  { name: 'REST APIs', category: 'Backend', proficiency: 95, icon: 'Server' },
-  
+  { name: "Node.js", category: "Backend", proficiency: 90, icon: "Server" },
+  { name: "Python", category: "Backend", proficiency: 85, icon: "Server" },
+  { name: "GraphQL", category: "Backend", proficiency: 80, icon: "Server" },
+  { name: "REST APIs", category: "Backend", proficiency: 95, icon: "Server" },
+
   // Database
-  { name: 'PostgreSQL', category: 'Database', proficiency: 90, icon: 'Database' },
-  { name: 'MongoDB', category: 'Database', proficiency: 85, icon: 'Database' },
-  { name: 'Redis', category: 'Database', proficiency: 80, icon: 'Database' },
-  
+  {
+    name: "PostgreSQL",
+    category: "Database",
+    proficiency: 90,
+    icon: "Database",
+  },
+  { name: "MongoDB", category: "Database", proficiency: 85, icon: "Database" },
+  { name: "Redis", category: "Database", proficiency: 80, icon: "Database" },
+
   // DevOps
-  { name: 'Docker', category: 'DevOps', proficiency: 85, icon: 'Cloud' },
-  { name: 'Kubernetes', category: 'DevOps', proficiency: 80, icon: 'Cloud' },
-  { name: 'AWS', category: 'DevOps', proficiency: 85, icon: 'Cloud' },
-  { name: 'CI/CD', category: 'DevOps', proficiency: 90, icon: 'Cog' },
+  { name: "AWS", category: "DevOps", proficiency: 85, icon: "Cloud" },
 ];
 
-const categories = ['All', 'Frontend', 'Backend', 'Database', 'DevOps'];
+const categories = ["All", "Frontend", "Backend", "Database", "DevOps"];
 
 const iconComponents = {
   Code,
@@ -42,14 +44,15 @@ const iconComponents = {
 };
 
 const Skills = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0.1,
   });
 
   const filteredSkills = skills.filter(
-    skill => selectedCategory === 'All' || skill.category === selectedCategory
+    (skill) =>
+      selectedCategory === "All" || skill.category === selectedCategory,
   );
 
   return (
@@ -71,8 +74,8 @@ const Skills = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-full transition-colors ${
                   selectedCategory === category
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                 }`}
               >
                 {category}
@@ -86,8 +89,9 @@ const Skills = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {filteredSkills.map((skill, index) => {
-            const Icon = iconComponents[skill.icon as keyof typeof iconComponents];
-            
+            const Icon =
+              iconComponents[skill.icon as keyof typeof iconComponents];
+
             return (
               <motion.div
                 key={skill.name}

@@ -63,6 +63,7 @@ const Hero = ({ name, description, email, linkedin, github }: HeroProps) => {
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
               >
+                {/* TODO: github icon is deprecated in lucide-react */}
                 <Github className="w-6 h-6" />
               </a>
               <a
