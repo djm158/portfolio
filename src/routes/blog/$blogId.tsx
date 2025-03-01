@@ -1,10 +1,11 @@
 import { createFileRoute, useParams } from "@tanstack/react-router";
+import BlogPost from "@/components/BlogPost";
 
 export const Route = createFileRoute("/blog/$blogId")({
-  component: RouteComponent,
+  component: BlogPostRoute,
 });
 
-function RouteComponent() {
+function BlogPostRoute() {
   const { blogId } = useParams({ from: "/blog/$blogId" });
-  return <div>Hello {blogId}!</div>;
+  return <BlogPost blogId={blogId} />;
 }

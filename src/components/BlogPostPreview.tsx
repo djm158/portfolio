@@ -1,45 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Clock, Tag } from "lucide-react";
-import type { BlogPost } from "../types";
+import { posts } from "@/data/blog";
 
-const posts: BlogPost[] = [
-  {
-    id: "1",
-    title: "Building Scalable Microservices with Node.js",
-    summary:
-      "Learn how to design and implement scalable microservices architecture using Node.js and Docker.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    date: "2024-03-01",
-    readingTime: "8 min read",
-    tags: ["Node.js", "Microservices", "Docker"],
-  },
-  {
-    id: "2",
-    title: "React Performance Optimization Techniques",
-    summary:
-      "Discover advanced techniques to optimize your React applications for better performance.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    date: "2024-02-15",
-    readingTime: "6 min read",
-    tags: ["React", "Performance", "JavaScript"],
-  },
-  {
-    id: "3",
-    title: "Introduction to GraphQL with TypeScript",
-    summary:
-      "A comprehensive guide to building type-safe GraphQL APIs using TypeScript and Apollo Server.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    date: "2024-02-01",
-    readingTime: "10 min read",
-    tags: ["GraphQL", "TypeScript", "API"],
-  },
-];
-
-const Blog = () => {
+const BlogPostPreview = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -125,4 +89,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default BlogPostPreview;

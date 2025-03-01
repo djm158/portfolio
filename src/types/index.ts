@@ -29,6 +29,7 @@ export interface BlogPost {
   date: string;
   readingTime: string;
   tags: string[];
+  content: string;
 }
 
 export interface WorkExperience {

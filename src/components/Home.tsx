@@ -3,7 +3,7 @@ import WorkExperience from "./WorkExperience";
 import Hero from "./Hero";
 import Skills from "./Skills";
 import Projects from "./Projects";
-import Blog from "./Blog";
+import BlogPostPreview from "./BlogPostPreview";
 import Contact from "./Contact";
 import { Profile } from "@/data/profile";
 
@@ -24,7 +24,7 @@ export const Home = () => {
       <WorkExperience />
       <Skills />
       <Projects />
-      <Blog />
+      <BlogPostPreview />
       <Contact />
     </motion.div>
   );
