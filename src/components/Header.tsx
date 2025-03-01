@@ -4,6 +4,7 @@ import { Link } from "react-scroll";
 import { Link as RouterLink } from "@tanstack/react-router";
 import { Menu, X, Moon, Sun, FileDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import resume from "@/assets/resume.pdf";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -88,7 +89,7 @@ const Header = () => {
             </button>
 
             <a
-              href="/resume.pdf"
+              href={resume}
               download
               className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
