@@ -26,7 +26,7 @@ export const Icon = () => {
       ["path", { pathLength: 1 }, { duration: 2, ease: "easeInOut" }],
       [
         "path",
-        { fill: "#000000", fillOpacity: 1 },
+        { fill: "currentColor", fillOpacity: 1 },
         { duration: 1, ease: "easeInOut" },
       ],
     ]);
@@ -40,7 +40,7 @@ export const Icon = () => {
       viewBox="0 0 90 150"
       className="w-full h-full"
     >
-      <motion.g ref={scope} fill="none" stroke="#000000" strokeWidth="1">
+      <motion.g ref={scope} fill="none" stroke="currentColor" strokeWidth="1">
         <motion.path
           d={topPath}
           initial={{ pathLength: 0, fill: "none", fillOpacity: 0 }}
@@ -57,7 +57,7 @@ export const Icon = () => {
   -1.0 -2.2 -4.2 -1.9 -5.9 1.3 -6.5 1.5 -0.4 3.8 -1.3 5.2 -2.0 3.1 -1.8 4.0 -1.8 6.4 0z"
           initial={{ pathLength: 0, fill: "none", fillOpacity: 0 }}
           fill="none"
-          stroke="#000000"
+          stroke="currentColor"
           strokeWidth="1"
         />
       </motion.g>
