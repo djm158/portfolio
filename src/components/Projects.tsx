@@ -8,6 +8,8 @@ const projects: ProjectType[] = projectsData;
 
 const categories = [
   "All",
+  "Frontend",
+  "Backend",
   "Full Stack",
   "E-commerce",
   "Real-time",
@@ -33,7 +35,7 @@ const Projects = () => {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-3xl font-bold text-center mb-12"
+          className="text-3xl font-bold text-center mb-12 dark:text-gray-300"
         >
           Featured Projects
         </motion.h2>
@@ -101,7 +103,9 @@ const Projects = () => {
               <div className="p-6">
                 <div className="flex items-center mb-4">
                   <Folder className="w-5 h-5 text-blue-600 mr-2" />
-                  <h3 className="text-xl font-semibold">{project.title}</h3>
+                  <h3 className="text-xl font-semibold dark:text-gray-300">
+                    {project.title}
+                  </h3>
                 </div>
 
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
