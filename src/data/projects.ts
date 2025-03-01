@@ -1,67 +1,53 @@
 import { Project } from "@/types";
+import runcalc from "@/assets/runcalc-splash-image.webp";
 
 export const projects: Project[] = [
   {
     id: "1",
-    title: "E-commerce Platform",
+    title: "Run calculator",
     description:
-      "A full-featured e-commerce platform with real-time inventory management and payment processing.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    techStack: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
-    demoUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    category: ["Full Stack", "E-commerce"],
+      "Frontend web application for calculating running pace, determining race splits, and building mileage plans.",
+    thumbnail: runcalc,
+    techStack: [
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Formik",
+      "Vite",
+      "Vitest",
+    ],
+    demoUrl: "https://runcalc.xyz/",
+    githubUrl: "https://github.com/djm158/runcalculator",
+    category: ["Frontend"],
     overview:
-      "A comprehensive e-commerce solution built to handle high-volume transactions and real-time inventory management. The platform features a microservices architecture for scalability and resilience.",
+      "Frontend web application for calculating running pace, determining race splits, and building mileage plans.",
     challenges: [
       {
-        title: "Real-time Inventory Sync",
+        title: "Designing a user-friendly interface",
         description:
-          "Maintaining accurate inventory levels across multiple warehouses and preventing overselling during high-traffic periods.",
-      },
-      {
-        title: "Payment Processing",
-        description:
-          "Implementing secure, reliable payment processing with support for multiple payment methods and currencies.",
-      },
-      {
-        title: "Performance at Scale",
-        description:
-          "Optimizing the application to handle thousands of concurrent users during peak shopping periods.",
+          "The application needed to be easy to use and navigate, with a clean and modern design.",
       },
     ],
     solution:
-      "Implemented an event-driven architecture using Redis pub/sub for real-time inventory updates. Utilized caching strategies and database optimization techniques to improve performance. Integrated Stripe for secure payment processing with automatic retries and failure handling.",
+      "Implemented a responsive design using Tailwind CSS and shadcn/ui for optimal user experience.",
     features: [
-      "Real-time inventory management",
-      "Multi-currency support",
-      "Advanced search and filtering",
-      "Automated order processing",
-      "Analytics dashboard",
-      "Mobile-responsive design",
+      "Calculate running pace based on distance and time",
+      "Determine race splits based on pace and distance",
+      "Build mileage plans based on distance and time",
+      "Responsive design for optimal user experience on all devices",
+      "Use of shadcn/ui for consistent design and layout",
+      "Dark mode and light mode support",
     ],
-    gallery: [
-      {
-        url: "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        caption: "Product catalog with advanced filtering",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        caption: "Admin dashboard with real-time analytics",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        caption: "Mobile shopping experience",
-      },
-    ],
+    gallery: [],
     architecture: [
       "Next.js for server-side rendering and optimal performance",
-      "Node.js microservices for scalable backend operations",
-      "PostgreSQL for reliable data storage with complex relationships",
-      "Redis for caching and real-time event handling",
-      "Stripe API for secure payment processing",
-      "Docker containers for consistent deployment",
+      "Tailwind CSS for responsive design",
+      "shadcn/ui for consistent design and layout",
+      "Netlify for easy deployment",
+      "TypeScript for type safety",
+      "React for building a fast and efficient user interface",
+      "Formik for handling form state",
+      "Vite and vitest for development and testing",
     ],
   },
   // Add more projects as needed
