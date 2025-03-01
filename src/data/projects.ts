@@ -1,5 +1,5 @@
-import { Project } from "@/types";
 import runcalc from "@/assets/runcalc-splash-image.webp";
+import { Project } from "@/types";
 
 export const projects: Project[] = [
   {

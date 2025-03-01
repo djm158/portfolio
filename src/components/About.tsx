@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import {
   Github,
   Linkedin,
@@ -9,8 +8,10 @@ import {
   Briefcase,
   GraduationCap,
 } from "lucide-react";
-import { experiences } from "@/data/work-experience";
+import { useInView } from "react-intersection-observer";
+
 import { Profile } from "@/data/profile";
+import { experiences } from "@/data/work-experience";
 
 const About = () => {
   const { ref, inView } = useInView({

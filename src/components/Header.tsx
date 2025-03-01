@@ -1,9 +1,10 @@
+import { Link as RouterLink } from "@tanstack/react-router";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Moon, Sun, FileDown } from "lucide-react";
 import React, { useState, useEffect } from "react";
 // TODO: replace with tanstack router
 import { Link } from "react-scroll";
-import { Link as RouterLink } from "@tanstack/react-router";
-import { Menu, X, Moon, Sun, FileDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+
 import resume from "@/assets/resume.pdf";
 
 const Header = () => {

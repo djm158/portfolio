@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import {
   Briefcase,
   Calendar,
@@ -8,6 +7,8 @@ import {
   Code2,
   Trophy,
 } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+
 import type { WorkExperience as WorkExperienceType } from "../types";
 
 const experiences: WorkExperienceType[] = [

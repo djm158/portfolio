@@ -1,13 +1,14 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { Clock, Tag, ArrowLeft } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { posts } from "@/data/blog";
+import { motion } from "framer-motion";
+import { Clock, Tag, ArrowLeft } from "lucide-react";
+import { useInView } from "react-intersection-observer";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import type { Components } from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
-import type { Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
+
+import { posts } from "@/data/blog";
 
 interface BlogPostProps {
   blogId: string;

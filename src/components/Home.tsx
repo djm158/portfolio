@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
-import WorkExperience from "./WorkExperience";
-import Hero from "./Hero";
-import Skills from "./Skills";
-import Projects from "./Projects";
+
+import { Profile } from "@/data/profile";
+
 import BlogPostPreview from "./BlogPostPreview";
 import Contact from "./Contact";
-import { Profile } from "@/data/profile";
+import Hero from "./Hero";
+import Projects from "./Projects";
+import Skills from "./Skills";
+import WorkExperience from "./WorkExperience";
+
 
 export const Home = () => {
   return (

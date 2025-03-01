@@ -1,7 +1,8 @@
-import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { Code, Server, Database, Cloud, Cog, Palette } from "lucide-react";
+import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
+
 import type { Skill as SkillType } from "../types";
 
 const skills: SkillType[] = [

@@ -1,5 +1,5 @@
-import resume from "@/assets/resume.pdf";
 import profile from "@/assets/profile.jpeg";
+import resume from "@/assets/resume.pdf";
 export const Profile = {
   name: "Dan McGrath",
   description:

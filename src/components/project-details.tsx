@@ -9,6 +9,7 @@ import {
   Database,
   Cog,
 } from "lucide-react";
+
 import type { Project } from "@/types";
 
 export const ProjectDetails = ({ project }: { project: Project }) => {

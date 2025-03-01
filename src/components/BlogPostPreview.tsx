@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { Clock, Tag } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+
 import { posts } from "@/data/blog";
 
 const BlogPostPreview = () => {

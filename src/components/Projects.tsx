@@ -1,9 +1,10 @@
-import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { Github, ExternalLink, Folder } from "lucide-react";
-import type { Project as ProjectType } from "@/types";
+import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
+
 import { projects as projectsData } from "@/data";
+import type { Project as ProjectType } from "@/types";
 const projects: ProjectType[] = projectsData;
 
 const categories = [
