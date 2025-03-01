@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { Icon } from "./icon";
+import { HeroIcon } from "./HeroIcon";
 
 type HeroProps = {
   name: string;
@@ -100,7 +100,7 @@ const Hero = ({ name, description, email, linkedin, github }: HeroProps) => {
               }}
               className="flex items-center justify-center"
             >
-              <Icon />
+              <HeroIcon />
             </motion.div>
           </motion.div>
         </div>
